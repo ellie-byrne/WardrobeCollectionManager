@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document(collection = "wardrobe")
+@Document(collection = "clothing-items")
 @Data
 //lombok.Data takes care of all getters and setters - I will come back and do this manually once I have a product
 @AllArgsConstructor
@@ -19,7 +19,7 @@ import java.util.List;
 public class Items {
 
     @Id
-    private ObjectId itemNumber;
+    private ObjectId id;
     private String Item;
     private String dateAdded;
     private String shopLink;
