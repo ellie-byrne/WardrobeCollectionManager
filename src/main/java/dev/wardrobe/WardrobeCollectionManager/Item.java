@@ -28,8 +28,6 @@ public class Item {
     private List<String> filters;
     private String storePhoto;
     private List<String> uploadedPhotos;
-
-    @DocumentReference
-    private List<Review> reviews;
+    private List<String> review;
 
 }
