@@ -19,7 +19,7 @@ import java.util.List;
 public class Items {
 
     @Id
-    private ObjectId id;
+    private ObjectId _id;
     private String Item;
     private String dateAdded;
     private String shopLink;

@@ -24,9 +24,9 @@ public class ItemController {
         return new ResponseEntity<List<Items>>(itemService.allItems(), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Optional<Items>> getSingleItem(@PathVariable String id) {
-        return new ResponseEntity<Optional<Items>>(itemService.singleItem(id), HttpStatus.OK);
+    @GetMapping("/{_id}")
+    public ResponseEntity<Optional<Items>> getSingleItem(@PathVariable String _id) {
+        return new ResponseEntity<Optional<Items>>(itemService.singleItem(_id), HttpStatus.OK);
 
     }
 }
