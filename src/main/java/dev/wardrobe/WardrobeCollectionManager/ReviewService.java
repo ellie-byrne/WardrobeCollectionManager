@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ReviewsService {
+public class ReviewService {
 
     @Autowired
     private ReviewRepository reviewRepository;
@@ -15,16 +15,15 @@ public class ReviewsService {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    public Reviews createReview(String body, String id) {
-        Reviews review = new Reviews(body);
-        reviewRepository.insert(review);
+    public Review createReview(String reviewBody, String itemId) {
+        Review review = reviewRepository.insert(new Review(reviewBody));
 
         // Review review = reviewRepository.insert(new Review(body));
 
-        mongoTemplate.update(Items.class)
-                .matching(Criteria.where(id).is(id))
-                .apply(new Update().push("review").value(review))
-                .first();
+        mongoTemplate.update(Item.class)
+                .matching(Criteria.where(itemId).is(itemId))
+                    .apply(new Update().push("reviewIds").value(review.getId()))
+                    .first();
         return review;
     }
 }

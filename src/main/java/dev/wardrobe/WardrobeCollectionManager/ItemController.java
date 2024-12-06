@@ -1,6 +1,5 @@
 package dev.wardrobe.WardrobeCollectionManager;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,13 +19,13 @@ public class ItemController {
     private ItemService itemService;
 
     @GetMapping
-    public ResponseEntity<List<Items>> allItems() {
-        return new ResponseEntity<List<Items>>(itemService.allItems(), HttpStatus.OK);
+    public ResponseEntity<List<Item>> getItems() {
+        return new ResponseEntity<List<Item>>(itemService.findAllItems(), HttpStatus.OK);
     }
 
-    @GetMapping("/{_id}")
-    public ResponseEntity<Optional<Items>> getSingleItem(@PathVariable String _id) {
-        return new ResponseEntity<Optional<Items>>(itemService.singleItem(_id), HttpStatus.OK);
+    @GetMapping("/{itemId}")
+    public ResponseEntity<Optional<Item>> getSingleItem(@PathVariable String itemId) {
+        return new ResponseEntity<Optional<Item>>(itemService.findItemByItemId(itemId), HttpStatus.OK);
 
     }
 }

@@ -15,11 +15,13 @@ import java.util.Map;
 public class ReviewController {
 
     @Autowired
-    private ReviewsService reviewService;
+    private ReviewService reviewService;
 
-    @PostMapping
-    public ResponseEntity<Reviews> createReview(@RequestBody Map<String, String> payload) {
-        return new ResponseEntity<Reviews>(reviewService.createReview(payload.get("reviewBody"), payload.get("_id")), HttpStatus.CREATED);
+    @PostMapping()
+    public ResponseEntity<Review> createReview(@RequestBody Map<String, String> payload) {
+        return new ResponseEntity<Review>(reviewService.createReview(payload.get("reviewBody"), payload.get("itemId")), HttpStatus.OK);
     }
+
+
 
 }

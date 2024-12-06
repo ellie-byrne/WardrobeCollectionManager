@@ -1,7 +1,7 @@
 [
   {
-    "itemNumber": "1",
-    "Item": "Blue Coat",
+    "itemId": "6749d538420c6a8283bda888",
+    "item": "Blue Coat",
     "dateAdded": "2024-11-29",
     "shopLink": "https://arcteryx.com/gb/en/shop/womens/norvan-shell-jacket",
     "filters": [
@@ -13,10 +13,11 @@
     "uploadedPhotos": [
       "https://images-dynamic-arcteryx.imgix.net/details/1350x1710/S24-X000006355-Norvan-Shell-Jacket-Vitality-Women-s-Hover.jpg?auto=format%2Ccompress&q=75&fit=crop&fill=white&ixlib=react-9.8.1&w=2619",
       "https://images-dynamic-arcteryx.imgix.net/details/1350x1710/S24-X000006355-Norvan-Shell-Jacket-Vitality-Women-s-Back-View.jpg?auto=format%2Ccompress&q=75&fit=crop&fill=white&ixlib=react-9.8.1&w=2619"
-    ]
+    ],
+    "reviews": []
   },
   {
-    "itemNumber": "2",
+    "itemItem": "6749d538420c6a8283bda889",
     "Item": "Blue Jeans",
     "dateAdded": "2024-11-29",
     "shopLink": "https://uk.burberry.com/regular-fit-jeans-p80993861",
@@ -29,6 +30,7 @@
     "uploadedPhotos": [
       "https://images-dynamic-arcteryx.imgix.net/details/1350x1710/S24-X000006355-Norvan-Shell-Jacket-Vitality-Women-s-Hover.jpg?auto=format%2Ccompress&q=75&fit=crop&fill=white&ixlib=react-9.8.1&w=2619",
       "https://images-dynamic-arcteryx.imgix.net/details/1350x1710/S24-X000006355-Norvan-Shell-Jacket-Vitality-Women-s-Back-View.jpg?auto=format%2Ccompress&q=75&fit=crop&fill=white&ixlib=react-9.8.1&w=2619"
-    ]
+    ],
+    "reviews": []
   }
 ]

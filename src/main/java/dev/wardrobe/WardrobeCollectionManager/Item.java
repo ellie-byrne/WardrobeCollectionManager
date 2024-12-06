@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.util.List;
 
@@ -16,16 +17,19 @@ import java.util.List;
 //lombok.AllArgsConstructor takes all private fields as arguments
 @NoArgsConstructor
 //lombok.NoArgsConstructor takes no arguments in constructor
-public class Items {
+public class Item {
 
     @Id
     private ObjectId _id;
-    private String Item;
+    private String itemId;
+    private String item;
     private String dateAdded;
     private String shopLink;
     private List<String> filters;
     private String storePhoto;
     private List<String> uploadedPhotos;
-    private List<String> reviews;
+
+    @DocumentReference
+    private List<Review> reviews;
 
 }
