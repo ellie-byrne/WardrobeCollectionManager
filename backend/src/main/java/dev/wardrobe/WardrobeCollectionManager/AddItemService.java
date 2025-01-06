@@ -24,8 +24,21 @@ public class AddItemService {
                 dto.getShopLink(),
                 dto.getStorePhoto()
         );
-        return addItemRepository.save(item);
+//        System.out.println("Created item: " + item);
+//        return addItemRepository.save(item);
+        // Log to check the created item
+        try {
+            AddItem savedItem = addItemRepository.save(item);
+            System.out.println("Created item: " + item);
+            return savedItem;
+        } catch (Exception e) {
+            // Log error details
+            System.out.println("Error saving item: " + e.getMessage());
+            throw new RuntimeException("Failed to save item", e);
+        }
     }
+
+
 }
 
 //    public AddItem createItem(String itemId, String item, String dateAdded, String shopLink, String storePhoto) {
