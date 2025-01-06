@@ -1,0 +1,36 @@
+[
+  {
+    "itemId": "6752ec4c3ba66c213f2b6f79",
+    "item": "Blue Coat",
+    "dateAdded": "2024-11-29",
+    "shopLink": "https://arcteryx.com/gb/en/shop/womens/norvan-shell-jacket",
+    "filters": [
+      "Coat",
+      "Blue",
+      "Winter"
+    ],
+    "storePhoto": "https://images-dynamic-arcteryx.imgix.net/details/1350x1710/S24-X000006355-Norvan-Shell-Jacket-Vitality-Women-s-Front-View.jpg?auto=format%2Ccompress&q=75&fit=crop&fill=white&ixlib=react-9.8.1&w=2619",
+    "uploadedPhotos": [
+      "https://images-dynamic-arcteryx.imgix.net/details/1350x1710/S24-X000006355-Norvan-Shell-Jacket-Vitality-Women-s-Hover.jpg?auto=format%2Ccompress&q=75&fit=crop&fill=white&ixlib=react-9.8.1&w=2619",
+      "https://images-dynamic-arcteryx.imgix.net/details/1350x1710/S24-X000006355-Norvan-Shell-Jacket-Vitality-Women-s-Back-View.jpg?auto=format%2Ccompress&q=75&fit=crop&fill=white&ixlib=react-9.8.1&w=2619"
+    ],
+    "reviews": []
+  },
+  {
+    "itemId": "6752ec4c3ba66c213f2b6f7a",
+    "Item": "Blue Jeans",
+    "dateAdded": "2024-11-29",
+    "shopLink": "https://uk.burberry.com/regular-fit-jeans-p80993861",
+    "filters": [
+      "Jeans",
+      "Blue",
+      "Winter"
+    ],
+    "storePhoto": "https://assets.burberry.com/is/image/Burberryltd/FF7B0885-7FBA-4EC3-87B6-7497BE97CB51?$BBY_V3_SL_1$&wid=2100&hei=2100",
+    "uploadedPhotos": [
+      "https://images-dynamic-arcteryx.imgix.net/details/1350x1710/S24-X000006355-Norvan-Shell-Jacket-Vitality-Women-s-Hover.jpg?auto=format%2Ccompress&q=75&fit=crop&fill=white&ixlib=react-9.8.1&w=2619",
+      "https://images-dynamic-arcteryx.imgix.net/details/1350x1710/S24-X000006355-Norvan-Shell-Jacket-Vitality-Women-s-Back-View.jpg?auto=format%2Ccompress&q=75&fit=crop&fill=white&ixlib=react-9.8.1&w=2619"
+    ],
+    "reviews": []
+  }
+]

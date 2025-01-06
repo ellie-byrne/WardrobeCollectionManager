@@ -1,9 +1,9 @@
 package dev.wardrobe.WardrobeCollectionManager;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
+//Getters and Setters
+import lombok.Data;
+
+@Data
 public class AddItemDTO {
     private String itemId;
     private String item;
