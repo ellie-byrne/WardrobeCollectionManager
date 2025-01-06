@@ -34,31 +34,6 @@ import {
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
-  
-          <NavigationMenuItem>
-            <Link to="/projects">
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                OOTD
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-  
-          <NavigationMenuItem>
-            <Link to="/about">
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Dashboard
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-  
-          <NavigationMenuItem>
-            <Link to="/customer-reviews">
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Reviews
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-  
           <NavigationMenuItem className="relative">
             <NavigationMenuTrigger>All Items</NavigationMenuTrigger>
             <NavigationMenuContent className="absolute left-0 w-auto min-w-[150px]">
@@ -89,6 +64,29 @@ import {
                 </li>
               </ul>
             </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link to="/projects">
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                OOTD
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+  
+          <NavigationMenuItem>
+            <Link to="/about">
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Dashboard
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+  
+          <NavigationMenuItem>
+            <Link to="/customer-reviews">
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Reviews
+              </NavigationMenuLink>
+            </Link>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
