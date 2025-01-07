@@ -1,5 +1,6 @@
 package dev.wardrobe.WardrobeCollectionManager;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ import java.util.List;
 public class Item {
 
     @Id
+    @JsonSerialize(using = ObjectIdSerializer.class)
     private ObjectId _id;
     private String itemId;
     private String item;

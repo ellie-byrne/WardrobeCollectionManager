@@ -18,7 +18,7 @@ public class AddItemService {
 
     public AddItem createItem(AddItemDTO dto) {
         AddItem item = new AddItem(
-                dto.getItemId(),
+                String.valueOf(dto.getShopLink().hashCode()),
                 dto.getItem(),
                 dto.getDateAdded(),
                 dto.getShopLink(),

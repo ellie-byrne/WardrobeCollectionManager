@@ -7,15 +7,17 @@ import { Card, CardContent } from '@/components/ui/card';
 const ItemDetail = () => {
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { _id } = useParams();
+  const { _id } = useParams();  // This will get the itemId from the URL
 
   useEffect(() => {
     const fetchItem = async () => {
       try {
+        console.log("Fetching item with ID:", _id);
         const response = await axios.get(`http://localhost:8080/api/v1/items/${_id}`);
+        console.log("Received item data:", response.data);
         setItem(response.data);
       } catch (error) {
-        console.error('Error fetching item:', error);
+        console.error("Error fetching item:", error);
       } finally {
         setLoading(false);
       }
@@ -40,12 +42,12 @@ const ItemDetail = () => {
             <div>
               <img
                 src={item.storePhoto}
-                alt={item.name || 'Item photo'}
+                alt={item.item || 'Item photo'}
                 className="w-full h-auto rounded-lg"
               />
             </div>
             <div>
-              <h1 className="text-3xl font-bold mb-4">{item.name}</h1>
+              <h1 className="text-3xl font-bold mb-4">{item.item}</h1>
               <p className="text-2xl font-semibold mb-4">${item.price}</p>
               <p className="text-gray-600 mb-6">{item.description}</p>
             </div>
