@@ -9,5 +9,4 @@ import java.util.Optional;
 @Repository
 public interface ItemRepository extends MongoRepository<Item, ObjectId> {
     Optional<Item> findItemByItemId(String itemId);
-
 }

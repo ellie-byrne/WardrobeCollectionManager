@@ -1,5 +1,6 @@
 package dev.wardrobe.WardrobeCollectionManager;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +17,8 @@ public class ItemService {
         return itemRepository.findAll();
     }
 
-    public Optional<Item> findItemByItemId(String itemId) {
-        return itemRepository.findItemByItemId(itemId);
-
+    public Item findItemById(ObjectId id) {
+        return itemRepository.findById(id).orElse(null);
     }
 }
+
