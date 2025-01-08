@@ -20,9 +20,9 @@ const ItemGrid = () => {
       });
   }, []);
 
-  const handleItemClick = (item) => {
-    console.log("Using itemId for navigation:", item._id);
-    // navigate(`/all-items/${itaem._id}`);  // Use itemId instead of _id
+  const handleItemClick = (_id) => {
+    console.log("Using itemId for navigation:", _id);
+    navigate(`/all-items/${_id}`);  // Use itemId instead of _id
   };
 
   return (

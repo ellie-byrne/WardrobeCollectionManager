@@ -48,7 +48,7 @@ const ItemDetail = () => {
             </div>
             <div>
               <h1 className="text-3xl font-bold mb-4">{item.item}</h1>
-              <p className="text-2xl font-semibold mb-4">${item.price}</p>
+              <p className="text-2xl font-semibold mb-4">${item.item}</p>
               <p className="text-gray-600 mb-6">{item.description}</p>
             </div>
           </div>
