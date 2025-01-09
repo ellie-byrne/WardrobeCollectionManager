@@ -2,7 +2,7 @@
   {
     "itemId": "6752ec4c3ba66c213f2b6f79",
     "item": "Blue Coat",
-    "dateAdded": "2024-11-29",
+    "type": "Top",
     "shopLink": "https://arcteryx.com/gb/en/shop/womens/norvan-shell-jacket",
     "filters": [
       "Coat",
@@ -18,8 +18,8 @@
   },
   {
     "itemId": "6752ec4c3ba66c213f2b6f7a",
-    "Item": "Blue Jeans",
-    "dateAdded": "2024-11-29",
+    "Item": "Bottom",
+    "type": "2024-11-29",
     "shopLink": "https://uk.burberry.com/regular-fit-jeans-p80993861",
     "filters": [
       "Jeans",

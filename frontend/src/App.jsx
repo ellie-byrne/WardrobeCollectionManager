@@ -1,7 +1,7 @@
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import './App.css'
 import Layout from './components/Layout';
-import { About, Contact, CustomerReviews, Projects, Home, AllItems} from './Sections';
+import { About, Contact, CustomerReviews, Projects, Home, AllItems, Tops} from './Sections';
 import ItemDetail from './components/ItemDetail';
 
 const App =() => {
@@ -16,6 +16,7 @@ const App =() => {
                     <Route path="/projects" element={<Projects />} />
                     <Route path="/all-items" element={<AllItems />} />
                     <Route path="/all-items/:_id" element={<ItemDetail />} />
+                    <Route path="/tops" element={<Tops/>} />
                 </Route>
             </Routes>
         </BrowserRouter>

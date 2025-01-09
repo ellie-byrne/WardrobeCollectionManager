@@ -1,9 +1,7 @@
 package dev.wardrobe.WardrobeCollectionManager;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -18,14 +16,17 @@ import java.util.List;
 //lombok.AllArgsConstructor takes all private fields as arguments
 @NoArgsConstructor
 //lombok.NoArgsConstructor takes no arguments in constructor
+@Builder
 public class Item {
 
     @Id
     @JsonSerialize(using = ObjectIdSerializer.class)
+    @Getter
+    @Setter
     private ObjectId _id;
     private String itemId;
     private String item;
-    private String dateAdded;
+    private String type;
     private String shopLink;
     private List<String> filters;
     private String storePhoto;

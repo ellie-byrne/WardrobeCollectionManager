@@ -40,7 +40,7 @@ const ItemGrid = () => {
               className="w-full h-48 object-cover rounded-md mb-2"
             />
             <h3 className="font-semibold text-lg">{item.item}</h3>
-            <p className="text-gray-600">${item.item}</p>
+            <p className="text-gray-600">{item.type}</p>
           </CardContent>
         </Card>
       ))}

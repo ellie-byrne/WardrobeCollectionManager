@@ -20,7 +20,7 @@ public class AddItemService {
         AddItem item = new AddItem(
                 String.valueOf(dto.getShopLink().hashCode()),
                 dto.getItem(),
-                dto.getDateAdded(),
+                dto.getType(),
                 dto.getShopLink(),
                 dto.getStorePhoto()
         );

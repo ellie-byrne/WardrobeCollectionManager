@@ -19,14 +19,14 @@ public class AddItem {
     private ObjectId _id;
     private String itemId;
     private String item;
-    private String dateAdded;
+    private String type;
     private String shopLink;
     private String storePhoto;
 
-    public AddItem(String itemId, String item, String dateAdded, String shopLink, String storePhoto) {
+    public AddItem(String itemId, String item, String type, String shopLink, String storePhoto) {
         this.itemId = itemId;
         this.item = item;
-        this.dateAdded = dateAdded;
+        this.type = type;
         this.shopLink = shopLink;
         this.storePhoto = storePhoto;
     }

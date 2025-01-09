@@ -14,7 +14,108 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { useToast } from "@/hooks/use-toast"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
+// Separate EditItemDialog component
+const EditItemDialog = ({ item, onItemUpdated }) => {
+    // Initialize with the current item name instead of the entire item object
+    const [formData, setFormData] = useState({
+      item: item.item || '', // Changed from 'name' to 'item' to match your data structure
+      dateAdded: item.dateAdded || ''
+    });
+    const [isLoading, setIsLoading] = useState(false);
+    const [open, setOpen] = useState(false);
+  
+    const handleInputChange = (e) => {
+      const { id, value } = e.target;
+      setFormData(prev => ({
+        ...prev,
+        [id]: value
+      }));
+    };
+  
+    const handleSubmit = async () => {
+      try {
+        setIsLoading(true);
+        // Send only the updated fields while preserving other fields
+        const response = await axios.put(`http://localhost:8080/api/v1/items/${item._id}`, {
+          ...item,        // Spread the existing item data to preserve all fields
+          item: formData.item,  // Update only the item name
+          dateAdded: formData.dateAdded // Update the dateAdded field
+        });
+        
+        if (response.status === 200) {
+          onItemUpdated(response.data);
+          setOpen(false);
+        }
+      } catch (error) {
+        console.error('Error updating item:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button variant="outline">Edit Item</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Edit Item</DialogTitle>
+          <DialogDescription>
+            Make changes to your item here. Click save when you're done.
+          </DialogDescription>
+        </DialogHeader>
+        <div className="grid gap-4 py-4">
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="item" className="text-right">
+              Name
+            </Label>
+            <Input
+              id="item"  // Changed from 'name' to 'item'
+              value={formData.item}
+              onChange={handleInputChange}
+              className="col-span-3"
+            />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="dateAdded" className="text-right">
+              Date Added
+            </Label>
+            <Input
+              id="dateAdded"
+              value={formData.dateAdded}
+              onChange={handleInputChange}
+              className="col-span-3"
+            />
+          </div>
+        </div>
+        <DialogFooter>
+          <Button 
+            type="submit" 
+            onClick={handleSubmit}
+            disabled={isLoading}
+          >
+            {isLoading ? 'Saving...' : 'Save changes'}
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+};
+
+// Main ItemDetail component
 const ItemDetail = () => {
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -42,22 +143,8 @@ const ItemDetail = () => {
   const handleDelete = async () => {
     try {
       setIsDeleting(true);
-      console.log("Attempting to delete item with ID:", _id);
-      
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-      };
-  
-      // Correct URL: Ensure you're using the correct endpoint defined in the backend
       const deleteUrl = `http://localhost:8080/api/v1/delete-items/delete-item/${_id}`;
-      console.log("Delete URL:", deleteUrl);
-  
-      const response = await axios.delete(deleteUrl, config);
-      
-      console.log("Delete response:", response);
+      await axios.delete(deleteUrl);
       
       toast({
         title: "Success",
@@ -66,22 +153,25 @@ const ItemDetail = () => {
       });
       navigate('/items');
     } catch (error) {
-      console.error("Delete error details:", {
-        message: error.message,
-        response: error.response?.data,
-        status: error.response?.status,
-      });
-  
+      console.error("Delete error:", error);
       toast({
         title: "Error",
-        description: error.response?.data?.message || "Failed to delete item. Please try again.",
+        description: "Failed to delete item. Please try again.",
         variant: "destructive",
       });
     } finally {
       setIsDeleting(false);
     }
   };
-  
+
+  const handleItemUpdated = (updatedItem) => {
+    setItem(updatedItem);
+    toast({
+      title: "Success",
+      description: "Item updated successfully",
+      variant: "default",
+    });
+  };
 
   if (loading) {
     return <div className="p-4">Loading...</div>;
@@ -105,31 +195,37 @@ const ItemDetail = () => {
             </div>
             <div>
               <h1 className="text-3xl font-bold mb-4">{item.item}</h1>
-              <p className="text-2xl font-semibold mb-4">${item.item}</p>
+              <p className="text-2xl font-semibold mb-4">${item.price}</p>
               <p className="text-gray-600 mb-6">{item.description}</p>
-              <Drawer>
-                <DrawerTrigger>
-                  <Button variant="destructive">Delete Item</Button>
-                </DrawerTrigger>
-                <DrawerContent>
-                  <DrawerHeader>
-                    <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-                    <DrawerDescription>This action cannot be undone.</DrawerDescription>
-                  </DrawerHeader>
-                  <DrawerFooter className="flex flex-col sm:flex-row gap-2">
-                    <Button 
-                      variant="destructive" 
-                      onClick={handleDelete} 
-                      disabled={isDeleting}
-                    >
-                      {isDeleting ? 'Deleting...' : 'Delete Item'}
-                    </Button>
-                    <DrawerClose>
-                      <Button variant="outline">Cancel</Button>
-                    </DrawerClose>
-                  </DrawerFooter>
-                </DrawerContent>
-              </Drawer>
+              <div className="flex gap-4">
+                <EditItemDialog 
+                  item={item} 
+                  onItemUpdated={handleItemUpdated} 
+                />
+                <Drawer>
+                  <DrawerTrigger>
+                    <Button variant="destructive">Delete Item</Button>
+                  </DrawerTrigger>
+                  <DrawerContent>
+                    <DrawerHeader>
+                      <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+                      <DrawerDescription>This action cannot be undone.</DrawerDescription>
+                    </DrawerHeader>
+                    <DrawerFooter className="flex flex-col sm:flex-row gap-2">
+                      <Button 
+                        variant="destructive" 
+                        onClick={handleDelete} 
+                        disabled={isDeleting}
+                      >
+                        {isDeleting ? 'Deleting...' : 'Delete Item'}
+                      </Button>
+                      <DrawerClose>
+                        <Button variant="outline">Cancel</Button>
+                      </DrawerClose>
+                    </DrawerFooter>
+                  </DrawerContent>
+                </Drawer>
+              </div>
             </div>
           </div>
         </CardContent>
