@@ -86,15 +86,3 @@ const Projects = () => {
 };
 
 export default Projects;
-
-// import ItemSubmissionForm from '../components/ui/ItemSubmissionForm';  // adjust the path based on your file structure
-
-// function AddItemPage() {
-//   return (
-//     <div className="container mx-auto py-8">
-//       <ItemSubmissionForm />
-//     </div>
-//   );
-// }
-
-// export default AddItemPage;
