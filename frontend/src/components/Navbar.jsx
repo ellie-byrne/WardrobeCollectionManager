@@ -62,6 +62,14 @@ import {
                     Bottoms
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/shoes"
+                    className="block select-none rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                  >
+                    Shoes
+                  </Link>
+                </li>
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>

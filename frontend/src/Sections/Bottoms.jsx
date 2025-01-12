@@ -10,7 +10,7 @@ const ItemsList = () => {
     const fetchItems = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:8080/api/v1/items/type/tops');
+        const response = await axios.get('http://localhost:8080/api/v1/items/type/bottoms');
         setItems(response.data);
       } catch (error) {
         console.error('Error fetching items:', error);
