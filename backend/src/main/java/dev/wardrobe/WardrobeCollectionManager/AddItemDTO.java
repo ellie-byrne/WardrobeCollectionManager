@@ -2,7 +2,11 @@ package dev.wardrobe.WardrobeCollectionManager;
 
 //Getters and Setters
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Data
 public class AddItemDTO {
     private String itemId;

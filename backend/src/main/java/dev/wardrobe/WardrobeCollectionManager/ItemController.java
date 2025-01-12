@@ -19,6 +19,14 @@ public class ItemController {
         this.itemService = itemService;
     }
 
+    @GetMapping
+    public ResponseEntity<List<Item>> getAllItems() {
+        List<Item> items = itemService.findAllItems();
+        System.out.println("Found " + items.size() + " items");
+        items.forEach(item -> System.out.println("Item: " + item.getItem() + ", Type: " + item.getType()));
+        return ResponseEntity.ok(items);
+    }
+
     @GetMapping("/type/{type}")
     public ResponseEntity<List<Item>> getItemsByType(@PathVariable String type) {
         List<Item> items = itemService.findByType(type.toLowerCase());

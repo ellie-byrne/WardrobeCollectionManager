@@ -41,13 +41,3 @@ public class AddItemService {
 
 }
 
-//    public AddItem createItem(String itemId, String item, String dateAdded, String shopLink, String storePhoto) {
-//        AddItem addItem = addItemRepository.insert(new AddItem(itemId, item, dateAdded, shopLink, storePhoto));
-//
-//        Update update = new Update();
-//        update.push("item", item);
-//        Query query = new Query(Criteria.where("itemId").is(itemId));
-//        var upResult = mongoTemplate.updateFirst(query, update, Item.class);
-//        return addItem;
-//    }
-//}
