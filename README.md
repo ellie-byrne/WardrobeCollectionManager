@@ -45,6 +45,10 @@ These data points are essential for providing the core functionalities, such as 
 
 ### System Design
 
+#### UML
+
+![UML](https://github.com/ellie-byrne/WardrobeCollectionManager/blob/master/docs/UML.jpg)
+
 #### Class Diagram
 
 The system’s architecture is designed using object-oriented principles. I used mermaid to create a class diagram representing the backend of my project. 
