@@ -50,7 +50,7 @@ These data points are essential for providing the core functionalities, such as 
 The system’s architecture is designed using object-oriented principles. I used mermaid to create a class diagram representing the backend of my project. 
 Below are the main functional classes involved my app visually displayed by Mermaid and the code behind it.
 
-![ClassDiagram](https://github.com/ellie-byrne/WardrobeCollectionManager/blob/master/docs/ClassDiagram.html)
+![ClassDiagram](https://github.com/ellie-byrne/WardrobeCollectionManager/blob/master/docs/ClassDiagram.png)
 
 ```Python
 classDiagram
@@ -144,13 +144,15 @@ DELETE "/delete-item/{itemId}": Deletes a wardrobe item.
 
 ### Interaction Design
 
-![NavbarDisplayIssues](https://github.com/ellie-byrne/WardrobeCollectionManager/blob/master/docs/NavbarDisplayIssues.png)
-
 The user interface design focuses on creating a user-friendly interface for managing wardrobe items providing intuitive controls and a responsive design.
 
 ### Frontend Development
 
 The frontend of the application was built using React and Vite, offering a modern and fast approach to building user interfaces. For the different UI components, I used ShadCN: ShadCN is not a component library but rather a collection of re-usable components that you are able to copy and paste into your apps. This provided a visually appealing and accessible design whilst still allowing me to manipulate components freely.
+
+![NavbarDisplayIssues](https://github.com/ellie-byrne/WardrobeCollectionManager/blob/master/docs/NavbarDisplayIssues.png)
+
+![EmptyItemPage](https://github.com/ellie-byrne/WardrobeCollectionManager/blob/master/docs/EmptyItemPage.png)
 
 ### Main Features
 
@@ -166,6 +168,8 @@ Form to Add/Update Items: Simple forms for adding new items with fields for: ite
 
 The backend is built with Java Spring Boot, using MongoDB for the database. Each class (clothing-item, addItem, reviews) corresponds to a MongoDB collection, and the application makes use of Spring Data MongoDB for database interactions.
 
+![BackendRequest](https://github.com/ellie-byrne/WardrobeCollectionManager/blob/master/docs/BackendRequest.png)
+
 #### CRUD Operations
 
 The CRUD operations are designed to allow users to:
@@ -175,7 +179,6 @@ The CRUD operations are designed to allow users to:
 - Read wardrobe items by fetching them from the database and displaying them in the frontend.
 
 - Delete items from the wardrobe collection.
-
 
 ## Testing
 
@@ -188,6 +191,10 @@ Adding, editing, and deleting wardrobe items.
 Filtering items by shop and rating.
 Adding and viewing reviews.
 This was done largely through the use of console logs so I was able to debug whilst the application was running
+
+![DebuggingDelete](https://github.com/ellie-byrne/WardrobeCollectionManager/blob/master/docs/DebuggingDelete.png)
+
+![DebuggingFiltering](https://github.com/ellie-byrne/WardrobeCollectionManager/blob/master/docs/DebuggingFiltering.png)
 
 ### Unit Testing
 
