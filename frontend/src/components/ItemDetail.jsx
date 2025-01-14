@@ -30,8 +30,8 @@ import { Label } from "@/components/ui/label"
 const EditItemDialog = ({ item, onItemUpdated }) => {
     // Initialize with the current item name instead of the entire item object
     const [formData, setFormData] = useState({
-      item: item.item || '', // Changed from 'name' to 'item' to match your data structure
-      dateAdded: item.dateAdded || ''
+      item: item.item || '', // Initialize with the current item name
+      type: item.type || ''
     });
     const [isLoading, setIsLoading] = useState(false);
     const [open, setOpen] = useState(false);
@@ -51,7 +51,7 @@ const EditItemDialog = ({ item, onItemUpdated }) => {
         const response = await axios.put(`http://localhost:8080/api/v1/items/${item._id}`, {
           ...item,        // Spread the existing item data to preserve all fields
           item: formData.item,  // Update only the item name
-          dateAdded: formData.dateAdded // Update the dateAdded field
+          type: formData.type
         });
         
         if (response.status === 200) {
@@ -83,19 +83,19 @@ const EditItemDialog = ({ item, onItemUpdated }) => {
               Name
             </Label>
             <Input
-              id="item"  // Changed from 'name' to 'item'
+              id="item"
               value={formData.item}
               onChange={handleInputChange}
               className="col-span-3"
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="dateAdded" className="text-right">
-              Date Added
+            <Label htmlFor="type" className="text-right">
+              Type
             </Label>
             <Input
-              id="dateAdded"
-              value={formData.dateAdded}
+              id="type"
+              value={formData.type}
               onChange={handleInputChange}
               className="col-span-3"
             />
@@ -195,7 +195,7 @@ const ItemDetail = () => {
             </div>
             <div>
               <h1 className="text-3xl font-bold mb-4">{item.item}</h1>
-              <p className="text-2xl font-semibold mb-4">${item.price}</p>
+              <p className="text-2xl font-semibold mb-4">{item.type}</p>
               <p className="text-gray-600 mb-6">{item.description}</p>
               <div className="flex gap-4">
                 <EditItemDialog 

@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card, CardContent } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 const ItemsList = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const navigate = useNavigate();
+    
+  const handleItemClick = (_id) => {
+    console.log("Using itemId for navigation:", _id);
+    navigate(`/all-items/${_id}`);  // Use itemId instead of _id
+  };
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -29,7 +37,8 @@ const ItemsList = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {items.map((item) => (
-            <Card key={item._id}>
+            <Card key={item._id} className="cursor-pointer hover:shadow-lg transition-shadow duration-200"
+            onClick={() => handleItemClick(item._id)}>
               <CardContent className="p-4">
                 <img
                   src={item.storePhoto}
