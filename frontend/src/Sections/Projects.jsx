@@ -9,29 +9,28 @@ import {
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-// import React from "react";
-
-// // THIS IS TO BE SWAPPED with home
-
+// Component to display outfit of the day using a carousel.
 const Projects = () => {
+  // Store the JSON data fetched from the API.
   const [wardrobejson, setWardrobejson] = useState([]);
 
+  // useEffect hook to fetch data from the API.
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/v1/items")
+      .get("http://localhost:8080/api/v1/items") // API endpoint for where to fetch items from.
       .then((response) => {
         const links = response.data.map((item) => item.storePhoto);
-        setWardrobejson(links);
-        // debugging lol
-        console.log("data", response.data);
+        setWardrobejson(links); 
+        console.log("data", response.data); // Logging the response data for debugging.
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error); // Logging any errors that occur during the API call for debugging.
       });
-  }, []);
+  }, []); // Empty dependency array ensures this effect runs only once.
 
   return (
     <>
+      {/* First Carousel. */}
       <div className="flex justify-center">
         <Carousel
           opts={{
@@ -40,23 +39,25 @@ const Projects = () => {
           className="w-full max-w-sm"
         >
           <CarouselContent>
+            {/* Mapping through the wardrobejson state to create carousel items. */}
             {wardrobejson.map((link, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
                 <div className="p-1">
                   <Card>
                     <CardContent className="flex aspect-square items-center justify-center p-6">
-                      <img src={link} alt="item" />
+                      <img src={link} alt="item" /> {/* Displaying the image. */}
                     </CardContent>
                   </Card>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious /> {/* Previous button for the carousel. */}
+          <CarouselNext /> {/* Next button for the carousel. */}
         </Carousel>
       </div>
 
+      {/* Second Carousel. */}
       <div className="flex justify-center">
         <Carousel
           opts={{
@@ -65,20 +66,21 @@ const Projects = () => {
           className="w-full max-w-sm"
         >
           <CarouselContent>
+            {/* Mapping through the wardrobejson state to create carousel items again.*/}
             {wardrobejson.map((link, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
                 <div className="p-1">
                   <Card>
                     <CardContent className="flex aspect-square items-center justify-center p-6">
-                      <img src={link} alt="item" />
+                      <img src={link} alt="item" /> {/* Displaying the image. */}
                     </CardContent>
                   </Card>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious /> {/* Previous button for the carousel. */}
+          <CarouselNext /> {/* Next button for the carousel. */}
         </Carousel>
       </div>
     </>
